@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load comments %}
+{% load comments_xtd %}
+
+
+{% block title %}
+    小雨眼:{{ object.title }}
+{% endblock title %}
+
+{% block content %}
+
+<article>    <!--文章正文-->
+     <div class="container center_content">
+       <div class="col-12 alert alert-success">作者：{{ article.author }}  点击量：{{ article.clickNums }}</div>
+        <div class="stitle">
+            <h2 data-scroll-reveal="enter right and move 10px over 1s">{{ article.title }}</h2>
+            <span data-scroll-reveal="enter bottom and move 20px over 1s after 0.5s">{{ article.createTime|date:'Y-m-d H:i:s' }}</span>
+        </div>
+        <h3 data-scroll-reveal="enter right and move 20px over 1s">
+            <span>您现在的位置是&gt;</span>
+            <a href="/">首页</a>&gt;
+            <a href="/learn/0/1/">学无止境</a>&gt;
+            <a href="/learn/{{ article.category.id }}/1">{{ article.category.cname }}</a>&gt;
+            <a href="/detail/{{ article.createTime|date:'Y' }}/{{ article.createTime|date:'m' }}/{{ article.createTime|date:'d' }}/{{ article.slug }}/">{{ article.title }}</a>
+        </h3>
+        <div class="detail_content">
+<!--            <p>-->
+                {{ article.content|safe }}
+<!--            </p>-->
+        </div>
+
+
+        <!-- ------------------------------------------ds------------------------------------------------->
+    </div>
+</article>
+
+<pinglun>   <!--文章评论-->
+     <div class="container center_content">
+         <!-- -----------------------------------------------显示评论个数 -------------------------------------------------->
+         {% get_comment_count for object as comment_count %}
+         <div class="py-4 text-center">
+             <a href="{% url 'article:index' %}">返回首页</a>
+             &nbsp;&sdot;&nbsp;
+             共有{{ comment_count }}条评论
+         </div>
+         <!-- -------------------------------------发表评论---------------------------------------------------------- -->
+         {% if object.allow_comments %}
+         <div class="card card-block mt-4 mb-5">
+             <div class="card-body">
+                 <h4 class="card-title text-center pb-3">发表你的评论</h4>
+                 {% render_comment_form for object %}
+             </div>
+         </div>
+         {% else %}
+         <h5 class="text-center">此文暂停评论</h5>
+         {% endif %}
+         <!-- -----------------------------------------------显示评论内容 -------------------------------------------------->
+         {% if comment_count %}
+<!--         <div id="comment-tree">-->
+             <div class="pinglun-list">
+                 {% render_xtdcomment_tree for object allow_flagging allow_feedback show_feedback %}
+             </div>
+<!--         </div>-->
+         {% endif %}
+         <!-- -------------------------------------显示---------------------------------------------------------- -->
+
+            {% get_comment_count for object as comment_count %}
+            <p class="date">
+              {% if comment_count %}
+              &sdot;&nbsp;{{ comment_count }} comment{{ comment_count|pluralize:",s" }}
+              {% endif %}
+            </p>
+         <!-- -------------------------------------结束评论---------------------------------------------------------- -->
+    </div>
+</pinglun>
+
+{% endblock content %}
+
+
+{% block script %}   <!-- 推荐所有的JS代码都采取这种方法插入 -->
+
+
+<!-- Ckeditor自适应 -->
+<script>
+    $(".django-ckeditor-widget").removeAttr('style');   <!-- $符号代表Jquery语句-->
+</script>
+
+<script>
+  $(function() {
+    $('[data-toggle="tooltip"]').tooltip({html: true});
+  });
+</script>
+
+{% endblock script %}

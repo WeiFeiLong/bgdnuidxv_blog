@@ -1,0 +1,102 @@
+{% load staticfiles %}
+{% load comments_xtd %}
+<canvas id="canvas"></canvas>
+
+<header>
+    <div class="container">
+        <div class="logo_title" data-scroll-reveal="enter right and move 20px over 1s">走在海边，走在月下</div>
+        <div class="top-right">
+            {% if user.is_authenticated %}
+            <div class="dropdown">
+                <button class="btn1 btn1-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    {{ user.email|email_gravatar }}
+                </button>
+                <ul class="dropdown-menu-1" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="#" onclick="user_delete()">
+                        <i class="fas fa-trash-alt" style="color: lightskyblue;"></i>
+                        &ensp;&ensp;删除用户
+                    </a></li>
+
+                    <li><a href='{% url "userprofile:logout" %}'>
+                        <i class="fas fa-sign-out-alt" style="color: lightskyblue;"></i>
+                        &ensp;&ensp;退出登录
+                    </a></li>
+                    <li><a href='{% url "userprofile:edit" user.id %}'>
+                        <i class="fas fa-address-book" style="color: lightskyblue;"></i>
+                        &ensp;&ensp;个人信息
+                    </a></li>
+                </ul>
+            </div>
+            {% else %}
+
+            <a  class="nav-link" href="{% url 'userprofile:login' %}">
+            <i class="fas fa-user" style="color: #00e8b3;font-size: 36px;"></i>
+                <in>登陆</in>
+            </a>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <form
+                    style="display:none;"
+                    id="user_delete"
+                    action="{% url 'userprofile:delete' user.id %}"
+                    method="POST"
+            >
+                {% csrf_token %}
+                <button type="submit">发送</button>
+            </form>
+            <script>
+                function user_delete() {
+                    layer.open({
+                        title: "确认删除",
+                        content: "确认删除用户资料吗？",
+                        yes: function(index, layero) {
+                            $('form#user_delete button').click();
+                            layer.close(index);
+                        },
+                    })
+                }
+            </script>
+            {% endif %}
+        </div>
+    </div>
+
+    <nav class="navbar navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" data-scroll-reveal="enter bottom and move 20px over 1s after 1s"
+                        class="navbar-toggle collapsed" data-toggle="collapse" data-target="#index_menu"
+                        aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="index_menu">
+                <ul class="nav navbar-nav" data-scroll-reveal="enter bottom and move 20px over 0.7s after 0.3s">
+                    <li><a href="{% url 'article:index' %}"><span>首页</span><span>Home</span></a></li>
+                    <li><a href="{% url 'article:about' %}"><span>关于我</span><span>About</span></a></li>
+                    <li><a href="/learn/0/1"><span>学无止境</span><span>Learn</span></a></li>
+                    <li><a href="/life/0/1"><span>慢生活</span><span>Life</span></a></li>
+                    <li><a href="{% url 'article:liuyan' %}"><span>留言</span><span>Saying</span></a></li>
+                    <li><a href="https://home.bgdnuidxv.com"><span>站点图</span><span>Navigate</span></a></li>
+                    <li><a href="#" onclick="myFriend()"><span>朋友们</span><span>Friend</span></a></li>
+                </ul>
+                <form class="navbar-form navbar-right" method='get' action="/search/" id="search">
+                    <div class="form-group">
+                        <input type="text" name="q" class="form-control" placeholder="搜索文章">
+                    </div>
+                    <button type="submit" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+
+                </form>
+                <script>
+                    function myFriend(){
+                        alert("开发中...互换友链联系admin@bgdnuidxv.com");
+                    }
+                </script>
+            </div>
+        </div>
+    </nav>
+</header>

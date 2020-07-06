@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% load staticfiles %}
+{% block title %}邮箱检测 {% endblock title %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/login.css' %}">
+
+{% endblock head %}
+
+{% block content %}
+<div class="main-w3l">
+    <div class="w3layouts-main">
+        <h2>登录</h2>
+        <form method="post" action=".">
+            {% csrf_token %}
+            <div class="name">
+                <input type="text"  id="username" name="username" placeholder="这里输入登录名" required onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+            </div>
+
+            <div class="name">
+                <input type="password"  id="password" name="password" placeholder="这里输入登录密码" required onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+            </div>
+            <span><a href='{% url "userprofile:register" %}'>账号注册</a></span>
+            <h6><a href='{% url "password_reset_recover" %}'>忘记密码</a></h6>
+            <input type="submit" value="登 录" name="login">
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block script %}{% endblock script %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% load staticfiles %}
+{% block title %} 登录 {% endblock title %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/login.css' %}">
+
+{% endblock head %}
+
+{% block content %}
+<div class="main-w3l">
+    <div class="w3layouts-main">
+        <h2>登录</h2>
+        <form method="post" action=".">
+            {% csrf_token %}
+            <div class="name">
+                <input type="text"  id="username" name="username" placeholder="这里输入登录名" required onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+            </div>
+
+            <div class="name">
+                <input type="password"  id="password" name="password" placeholder="这里输入登录密码" required onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+            </div>
+            <span><a href='{% url "userprofile:register" %}'>账号注册</a></span>
+            <h6><a href='{% url "password_reset_recover" %}'>忘记密码</a></h6>
+            <input type="submit" value="登 录" name="login">
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block script %}
+
+{% endblock script %}
+
+
+<!--<div style="height:1px;"></div>-->
+<!--<div class="login">-->
+<!--    <a class="sr">-->
+<!--        <form method="post" action=".">-->
+<!--            {% csrf_token %}-->
+<!--            <div class="name">-->
+<!--                <label>-->
+<!--                    <i class="sublist-icon glyphicon glyphicon-user"></i>-->
+<!--                </label>-->
+<!--                <input type="text"  id="username" name="username" placeholder="这里输入登录名" class="name_inp">-->
+<!--            </div>-->
+
+<!--            <div class="name">-->
+<!--                <label>-->
+<!--                    <i class="sublist-icon glyphicon glyphicon-pencil"></i>-->
+<!--                </label>-->
+<!--                <input type="password"  id="password" name="password" placeholder="这里输入登录密码" class="name_inp">-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash;            <a class="reg" href='{% url "userprofile:register" %}'>立即注册</a>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <button type="submit" id="submit" class="dl">登录</button>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <a class="forget" href='{% url "password_reset_recover" %}'>忘记密码</a>&ndash;&gt;-->
+
+<!--            <a class="display-flex">-->
+<!--                <a href='{% url "userprofile:register" %}'>立即注册</a>-->
+<!--                <button  type="submit" id="submit" class="dl">登录</button>-->
+<!--                <a href='{% url "password_reset_recover" %}'>忘记密码</a>-->
+<!--            </a>-->
+<!--        </form>-->
+<!--    </a>-->
+<!--</div>-->

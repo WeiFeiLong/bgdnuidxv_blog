@@ -1,0 +1,124 @@
+{% load staticfiles %}
+<a href="javascript:;" class="totop" title="回到顶部"></a>
+<div class="container footer_href">
+    <div class="row">
+        <div class="col-sm-7 col-sm-offset-3  col-xs-offset-1">
+            <div class="row">
+                <div class="col-sm-3 col-xs-3">
+                    <h4>关于我</h4>
+                    <ul>
+                        <li><a href="https://github.com/weifeilong" target="_blank">github</a></li>
+                        <li><a href="https://blog.csdn.net" target="_blank">csdn</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-3">
+                    <h4>CDN资源</h4>
+                    <ul>
+                        <li><a href="https://www.bootcdn.cn/" target="_blank">bootcdn</a></li>
+                        <li><a href="http://staticfile.org/" target="_blank">Staticfile</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-3">
+                    <h4>常用教程</h4>
+                    <ul>
+                        <li><a href="http://www.w3school.com.cn/" target="_blank">w3school</a></li>
+                        <li><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-3">
+                    <h4>服务器</h4>
+                    <ul>
+                        <li><a href="https://www.vultr.com/?ref=8207786" target="_blank">Vultr</a></li>
+                        <li><a href="https://dash.cloudflare.com/" target="_blank">cloudflare</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer11" id="footer">
+    <span id="sitetime"></span>
+    <a href="https://tongji.baidu.com/web/10000170319/overview/index?siteId=14925047" target="_blank"> |
+        网站统计</a>
+    <script language=javascript>
+        function siteTime() {
+            window.setTimeout("siteTime()", 1000);
+            const seconds = 1000;
+            const minutes = seconds * 60;
+            const hours = minutes * 60;
+            const days = hours * 24;
+            const years = days * 365;
+            const today = new Date();
+            const todayYear = today.getFullYear();
+            const todayMonth = today.getMonth() + 1;
+            const todayDate = today.getDate();
+            const todayHour = today.getHours();
+            const todayMinute = today.getMinutes();
+            const todaySecond = today.getSeconds();
+            /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+            year - 作为date对象的年份，为4位年份值
+            month - 0-11之间的整数，做为date对象的月份
+            day - 1-31之间的整数，做为date对象的天数
+            hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+            minutes - 0-59之间的整数，做为date对象的分钟数
+            seconds - 0-59之间的整数，做为date对象的秒数
+            microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+            const t1 = Date.UTC(2020, 2, 21, 00, 00, 00); //北京时间2016-12-1 00:00:00
+            const t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+            const diff = t2 - t1;
+            const diffYears = Math.floor(diff / years);
+            const diffDays = Math.floor((diff / days) - diffYears * 365);
+            const diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+            const diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+            const diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+            document.getElementById("sitetime").innerHTML = "博客已运行" + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+        }
+        siteTime();
+    </script>
+</footer>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script>
+    $(function () {
+        $('#search button').click(function () {
+            if (!$('#search input').val()) {      //如果没有输入值的话
+                alert('必须输入关键字才能搜索！！！');
+                return false;
+            }
+            $('form').submit();
+        });
+        $(window).scroll(function () {
+            var nowTop = $(document).scrollTop();
+
+            if (nowTop > 400) {
+                $('.totop').fadeIn(1000);
+            }
+            else {
+                $('.totop').fadeOut(1000);
+            }
+        });
+        $('.totop').click(function () {
+            $('html,body').animate({ scrollTop: 0 });
+        });
+    })
+</script>
+
+<script>
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+    (function(){
+        window.scrollReveal = new scrollReveal({reset:true});
+    })();
+}
+</script>

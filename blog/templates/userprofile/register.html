@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} 账号注册 {% endblock title %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/login-13.css' %}">
+<style>
+
+</style>
+{% endblock head %}
+
+{% block content %}
+
+<div class="main-w3l">
+    <div class="w3layouts-main">
+        <h2>注册</h2>
+        <form method="post" action=".">
+            {% csrf_token %}
+
+            <div class="name">
+<!--                <div class="left">-->
+<!--                    <label for="username">昵称</label>-->
+<!--                    <i class="fas fa-child"></i>-->
+                    <input type="text" id="username" name="username" placeholder="这里输入用户名" />
+<!--                </div>-->
+            </div>
+
+            <div class="name">
+<!--                <div class="left">-->
+<!--                    <label for="email">Email</label>-->
+                    <input type="email" id="email" name="email" placeholder="这里输入邮箱" />
+<!--                </div>-->
+            </div>
+
+            <div class="name">
+<!--                <div class="left">-->
+<!--                    <label for="password">设置密码</label>-->
+                    <input type="password"  id="password" name="password" placeholder="这里输入登录密码" />
+<!--                </div>-->
+            </div>
+
+            <div class="name">
+<!--                <div class="left">-->
+<!--                    <label for="password2">确认密码</label>-->
+                    <input type="password"  id="password2" name="password2" placeholder="再次输入登录密码" />
+<!--                </div>-->
+            </div>
+
+            <input type="submit" value="提 交">
+        </form>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}{% endblock script %}
+
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-12">-->
+<!--            <br>-->
+<!--            <form method="post" action=".">-->
+<!--                {% csrf_token %}-->
+<!--                &lt;!&ndash; 账号 &ndash;&gt;-->
+<!--                <div class="form-group col-md-4">-->
+<!--                    <label for="username">昵称</label>-->
+<!--                    <input type="text" class="form-control" id="username" name="username" required>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; 邮箱 &ndash;&gt;-->
+<!--                <div class="form-group col-md-4">-->
+<!--                    <label for="email">Email</label>-->
+<!--                    <input type="text" class="form-control" id="email" name="email">-->
+<!--                </div>-->
+<!--                &lt;!&ndash; 密码 &ndash;&gt;-->
+<!--                <div class="form-group col-md-4">-->
+<!--                    <label for="password">设置密码</label>-->
+<!--                    <input type="password" class="form-control" id="password" name="password" required>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; 确认密码 &ndash;&gt;-->
+<!--                <div class="form-group col-md-4">-->
+<!--                    <label for="password2">确认密码</label>-->
+<!--                    <input type="password" class="form-control" id="password2" name="password2" required>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; 提交按钮 &ndash;&gt;-->
+<!--                <button type="submit" class="btn btn-primary">提交</button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

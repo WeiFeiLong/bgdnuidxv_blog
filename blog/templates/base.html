@@ -1,0 +1,187 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312"/>
+    <meta name="baidu-site-verification" content="UKlYqifG81" />
+    <meta name="sogou_site_verification" content="QtfPsoxE7o"/>
+    <meta name="360-site-verification" content="725980d85d0edc0f0db96ebc8fa9a19e" />
+    <meta name="author" content="小雨" /><!--标注网页的作者-->
+    <Meta name="Copyright" Content="本页版权归bgdnuidxv所有。All Rights Reserved">
+    <meta name="keywords" content="{{ meta_category|default:'博客，前端, django, python, js, html, css, jq， bootstrap,nginx,uwsgi,echarts' }}" />
+    <meta name="description" id="description" content="{{ meta_description|default:'个人博客知识分享 django搭建的个人博客 前端界面由html,css,js,bootstrap完成，后台为django，数据库为mysql，同时使用redis数据库做缓存，网站引入了echarts饼图和markdown编辑器，部署在阿里云，部署方式为nginx+uwsgi' }}" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" >
+    <title>{% block title %}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="yandex-verification" content="ded1d923c9bee58d" />  <!--yandex域名验证，域名邮箱用-->
+    <!-- css --><!--不要同时放置index.css和learn.css，其内存在相同定义，会有影响-->
+<!--    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/3.3.0.bootstrap.css' %}">   <!--测试用-->
+<!--    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/code.css' %}">
+    <link rel="stylesheet" type="text/css" href="/static/css/index-3.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/learn.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/5.13.0/css/all.css" >
+
+    <!-- images -->
+    <link rel="icon" type="image/x-icon" href="https://drive.bgdnuidxv.com/images/B.png" />
+            <!-- 额外的js -->
+    <script type="text/javascript" src="https://cdn.bootcss.com/scrollReveal.js/0.1.2/scrollReveal.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/echarts/4.1.0/echarts-en.common.js"></script>
+    <script type="text/javascript" src="/static/ckeditor/ckeditor-init.js"></script>
+    <script type="text/javascript" src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+    
+
+    <script type="text/javascript" src="/static/ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/prism.css">
+
+
+    <script type="text/javascript" src="https://cdn.staticfile.org/font-awesome/5.13.0/js/all.js"></script>  <!--    图标CDN-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            const hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?7416ed335b657b6ffba88d60e8bb5a3e";
+            const s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<style>
+.top-right {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 18px;
+}
+in {
+    /* top: 30px; */
+    right: 33px;
+    font-size: 1px;
+    position: relative;
+    color: #00e8b3;;
+}
+/*关于右上角图片位置 始*/
+.btn1-default {
+    color: #333;
+    background-color: #faf9e5;
+    border-color: #faf9e5;
+}
+.btn1 {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    /* vertical-align: middle; */
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.open > .dropdown-menu-1 {
+    display: block;
+}
+.dropdown-menu-1 {
+    /* position: absolute; */
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    /*min-width: 160px;*/
+    padding: 3px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+.dropdown-menu-1 > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.dropdown-menu-1 > li > a:hover {
+    background-color: #0C6;
+    color: #FFF;
+    cursor: pointer;
+}
+
+/*关于右上角图片位置 终*/
+/*关于登陆界面头像显示 始*/
+.dropdown img {
+    border-radius: 50%;
+    width: 50px;
+    /*border: 2px solid #b70f0f;*/
+}
+.col-md-4 img {
+    border-radius: 50%;
+    width: 50px;
+    /*border: 2px solid #b70f0f;*/
+}
+/*关于登陆界面头像显示 3.4.1终*/
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#wrapper {
+    min-height: 70%;
+    margin-bottom: -20px;
+}
+
+#footer,
+#push {
+    height: 60px;
+}
+
+</style>
+    {% block head %}{% endblock head %}
+</head>
+
+<body>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/popper.js/1.16.0/umd/popper.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/twitter-bootstrap/3.3.0/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script type="text/javascript" src="{% static 'layer/layer.js' %}"></script>
+    <script type="text/javascript" src="/static/js/learn.js"></script>
+    <script type="text/javascript" src="/static/js/index.js"></script>
+    
+    {% include 'header.html' %}
+        <!-- 新增两个 div 容器 -->
+    <div id="wrapper">
+        {% block content %}{% endblock content %}
+        <div id="push"></div>
+    </div>
+    {% include 'footer.html' %}
+    {% block script %}{% endblock script %}
+</body>
+</html>

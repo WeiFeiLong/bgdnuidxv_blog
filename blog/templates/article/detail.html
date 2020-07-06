@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load comments %}
+{% load comments_xtd %}
+
+{% block title %}
+小眼记:{{ object.title }}
+{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/css/detail-5.css">
+<link rel="stylesheet" type="text/css" href="/static/css/pinglun-28.css">
+
+<!--<link rel="stylesheet" type="text/css" href="https://drive.bgdnuidxv.com/web/zoom.js-master/css/zoom.css">-->
+{% endblock head %}
+
+{% block content %}
+
+
+
+<article>
+    <div class="container center_content">
+<!--        <div class="col-12 alert alert-success">作者：{{ article.author }}  点击量：{{ article.clickNums }}</div>-->
+        <div class="stitle">
+            <h2 data-scroll-reveal="enter right and move 10px over 1s">{{ article.title }}</h2>
+<!--            <author data-scroll-reveal="enter bottom and move 20px over 1s after 0.5s"><i class="far fa-eye" style="color: lightskyblue;"></i>&nbsp;{{ article.clickNums }}</author>-->
+            <span data-scroll-reveal="enter bottom and move 20px over 1s after 0.5s">{{ article.createTime|date:'Y-m-d H:i:s' }}</span>
+        </div>
+        <h3 data-scroll-reveal="enter right and move 20px over 1s">
+            <span>您现在的位置是&gt;</span>
+            <a href="/">首页</a>&gt;
+            {% if article.category.lifeOrStudy == "学无止境" %}
+            <a href="/learn/0/1/">
+                {% else %}
+                <a href="/slowlife/">
+                    {% endif %}
+                {{ article.category.lifeOrStudy }}</a>&gt;
+            <a href="/learn/{{ article.category.id }}/1">{{ article.category.cname }}</a>&gt;
+            <a href="/detail/{{ article.createTime|date:'Y' }}/{{ article.createTime|date:'m' }}/{{ article.createTime|date:'d' }}/{{ article.slug }}/">{{ article.title }}</a>
+        </h3>
+        <div class="detail_content">
+            {{ article.content|safe }}
+        </div >
+
+        <div class="article-end-left">
+            <span class="far fa-eye"></span>
+            <span data-scroll-reveal="enter right and move 20px over 1s">
+                {{ article.clickNums }}
+            </span>
+        </div>
+        <div class="article-end-right">
+            <span class="fas fa-heart"></span>
+            <span data-scroll-reveal="enter right and move 20px over 1s">
+                点赞
+            </span>
+        </div>
+
+    </div>
+</article>
+<article-comment>
+    <div class="container article-comment">
+        <div class="comment-num-center">
+            发表你的评论
+        </div>
+
+        {% get_comment_count for object as comment_count %}
+        <div class="comment-num-right">
+        {% if object.allow_comments %}
+            共有{{ comment_count }}条评论
+            {% else %}
+            评论功能已关闭
+            {% endif %}
+        </div>
+    </div>
+</article-comment>
+
+<pinglun>
+    <div class="container center_pinglun">
+        <div class="card card-block mt-4 mb-5">
+            <div class="card-body">
+                {% render_comment_form for object %}
+            </div>
+        </div>
+        {% if comment_count %}
+        <div class="pinglun-list">
+            {% render_xtdcomment_tree for object allow_flagging allow_feedback show_feedback %}
+        </div>
+        {% endif %}
+    </div>
+</pinglun>
+
+{% endblock content %}
+
+
+{% block script %}
+
+<script>
+    $(".django-ckeditor-widget").removeAttr('style');
+</script>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+<script>
+    window.comments_props = {% get_commentbox_props for object %};
+    window.comments_props_override = {
+        allow_comments: {%if object.allow_comments%}true{%else%}false{%endif%},
+    allow_feedback: true,
+        show_feedback: true,
+        allow_flagging: true,
+        poll_interval: 2000  // In milliseconds.
+    };
+</script>
+
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+<script src="{% static 'django_comments_xtd/js/vendor~plugin-2.4.2.js' %}"></script>
+<script src="{% static 'django_comments_xtd/js/plugin-2.4.2.js' %}"></script>
+<script>
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip({html: true});
+    });
+</script>
+
+<script type="text/JavaScript" language="javascript">
+    function AddImgClickEvent()
+    {
+        const objs = document.getElementsByTagName("img");
+        for(let i=0; i<objs.length; i++)
+      {
+        objs[i].onclick=function()
+        {
+            $(this).toggleClass('max');
+        };
+        // objs[i].style.cursor = "zoom-in";
+      }
+    }
+    AddImgClickEvent();
+</script>
+
+<script>
+    $(function (){
+        $('.detail_content img').addClass('').attr("width","50%").attr("style","height: auto;cursor: zoom-in;");
+    })
+ </script>
+
+<script>
+    $(document).load($(window).bind("resize", checkPosition));
+    function checkPosition()
+    {
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            $(".detail_content img").attr("width","100%");
+        }
+        else if (window.matchMedia('(max-width: 992px)').matches){
+            $(".detail_content img").attr("width","80%");
+        }
+        else {
+            $(".detail_content img").attr("width","50%");
+        }
+    }
+</script>
+
+<style>
+    .stitle title{
+    display: block;
+    width: auto;
+    float: left;
+    height: 14px;
+    color: #2e8b57;
+    font-size: 24px;
+    margin: 10px 0 20px 0;
+    }
+    .stitle author{
+    width: auto;
+    /* float: right; */
+    height: 14px;
+    position: relative;
+    right: -45%;
+    top: 20px;
+    }
+    .stitle time{
+    width: auto;
+    /* float: left; */
+    height: 14px;
+    /* color: #563c398c; */
+    right: 20%;
+    top: 10px;
+    }
+    .pinglun-list{
+        width: 100%;
+    }
+    .max{width:100%;height:auto;}
+    .min{width:100px;height:auto;}
+</style>
+
+{% endblock script %}
