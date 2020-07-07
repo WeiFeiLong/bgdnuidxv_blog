@@ -6,111 +6,28 @@
 {% endblock title %}
 
 {% block head %}
-<style>
-    body {
-        /*background: url(https://home.bgdnuidxv.com/static/images/timg1.jpg) center top no-repeat;*/
-        background-color:#faf9e5 !important;
-    }
-    h1{
-        text-align: center;
-        color: orangered!important;
-    }
-
-    .center_content{
-        /*box-shadow: 0 1px 5px #2c2233;*/
-        margin: 30px auto 0;
-        padding: 15px;
-        overflow: hidden;
-    }
-    .home{
-
-    }
-    .menu {
-        width: 100%;
-        height: 270px;
-        /*float: right;*/
-        text-align: center;
-        font-size:30px;
-        color: #d87e21;
-        padding: 10px 0px 8px 0px;
-        /*border-radius: 50%;*/
-    }
-
-    .menu:hover{
-        background-color: #f3910e1f;
-        color: red;
-        cursor: pointer;
-        /*opacity:0.4;*/
-
-    }
-
-    /* 小屏幕（小于 992px） */
-    .bgd{
-        width: 100%;
-    }
-    .menu img{
-        border-radius: 50%;
-        height: auto;
-        width: 160px;
-        margin: auto;
-    }
-
-    /* 中等屏幕（桌面显示器，大于等于 992px） */
-    @media (min-width: 992px) {
-        .bgd{
-            width: 80%;
-        }
-        .menu{
-            height: 180px;
-            font-size:15px;
-        }
-        .menu img{
-            width: 130px;
-        }
-    }
-
-    /* 大屏幕（大桌面显示器，大于等于 1200px） */
-    @media (min-width:1200px) {
-        .bgd{
-            width: 72%;
-        }
-        .menu{
-            height: 170px;
-            font-size:18px;
-        }
-        .menu img{
-            width: 100px;
-        }
-    }
-
-</style>
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/index.css' %}">
 {% endblock head %}
 
 {% block content %}
-<!--<link rel="stylesheet" type="text/css" href="{% static 'home/css/home-2.css' %}">-->
 <h1>小眼记网站导览</h1>
-
-
-<!--<div class="container center_content">-->
 <div class="bgd center_content">
     <div class="home row"></div>
 </div>
-
-
 {% endblock content %}
 
 {% block script %}
 <script>
-    result = {{ result|safe }};
-    for (let i=0; i<result.length; i++){
-        $('.home').append('<div class="col-xs-4 col-sm-3 col-md-2 col-lg-2"><div class="menu"><a href="https://'
-            +result[i][3]+
-            '" target="_blank"><img src="/media/'
-            +result[i][4]+
-            '" class="img-responsive" alt="Responsive image"></a><p>'
-            +result[i][2]+
-            '</p></div></div>'
-        )
-    }
+result = {{ result|safe }};
+for (let i=0; i<result.length; i++){
+    $('.home').append('<div class="col-xs-4 col-sm-3 col-md-2 col-lg-2"><div class="menu"><a href="https://'
+        +result[i][3]+
+        '" target="_blank"><img src="/media/'
+        +result[i][4]+
+        '" class="img-responsive" alt="Responsive image"></a><p>'
+        +result[i][2]+
+        '</p></div></div>'
+    )
+}
 </script>
 {% endblock script %}
