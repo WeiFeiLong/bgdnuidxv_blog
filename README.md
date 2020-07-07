@@ -4,7 +4,3 @@
 `blog`正文部分
 
 `home`是网站地图
-
-
-
-[]: www.bgdnuidxv.com
