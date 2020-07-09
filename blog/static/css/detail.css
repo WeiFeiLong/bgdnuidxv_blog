@@ -1,0 +1,89 @@
+p{                      /*为了让前端显示更好看*/
+    margin: 0 0 16px;
+    line-height: 26px;
+}
+
+
+.center_content{
+    /*overflow: visible;*/
+}
+
+.center_content .stitle{
+    display: flex;
+    justify-content: space-between;
+}
+.center_content .stitle h2{
+    font-size: 25px;
+    color: seagreen;
+}
+
+.center_content .stitle span{
+    margin-top: 30px;
+}
+
+.center_content h3{
+    font-size: 12px;
+}
+
+.center_content h3 span{
+    font-size: 14px;
+    color: seagreen;
+}
+
+.center_content h3 a{
+    color: #46632b;
+    text-decoration: none;
+    margin: 0 3px;
+}
+
+.detail_content{
+    min-height: 100px;
+    font-size: 16px;
+    background-color: white;
+    padding:10px;  /*内边距*/
+    color:#4f4f4f;
+    font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif,SimHei,SimSun;
+    /*加上overflow:hidden后，点击图像后不能全屏*/
+    /*overflow:hidden;*/
+
+    word-break:break-all;
+}
+
+.detail_content img{
+    /*margin:24px 0;*/
+    display:inline-block;
+}
+
+.detail_content pre{
+    font-size: 16px;
+}
+.stitle title{
+    display: block;
+    width: auto;
+    float: left;
+    height: 14px;
+    color: #2e8b57;
+    font-size: 24px;
+    margin: 10px 0 20px 0;
+}
+.stitle author{
+    width: auto;
+    /* float: right; */
+    height: 14px;
+    position: relative;
+    right: -45%;
+    top: 20px;
+}
+.stitle time{
+    width: auto;
+    /* float: left; */
+    height: 14px;
+    /* color: #563c398c; */
+    right: 20%;
+    top: 10px;
+}
+.pinglun-list{
+    width: 100%;
+}
+.max{width:100%;height:auto;}
+.min{width:100px;height:auto;}

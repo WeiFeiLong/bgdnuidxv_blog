@@ -1,0 +1,8 @@
+.empty{
+    font-size: 20px;
+    text-align: center;
+}
+.highlighted{
+    color: #1f231e;
+    font-weight: 500;
+}

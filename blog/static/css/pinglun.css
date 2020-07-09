@@ -1,0 +1,311 @@
+@charset "utf-8";
+pinglun
+{
+  display: block;
+}
+.pinglun {
+	/*background-color: #f2f2f2;*/
+	/*padding: 20px;*/
+	/*border: 1px solid #b98282;*/
+	overflow: auto;
+    /*color: #292b2c;*/
+}
+.pinglun h2 {
+	font-size: 20px;
+	margin: 20px -20px 20px -20px;
+	padding: 10px 20px 9px 10px;
+	line-height: 18px;
+	border-left: 4px solid #1abc9c;
+	background-color: #effcf9;
+}
+.pinglun h2 span {
+    color: #16a085;
+}
+.pinglun-body {
+    float: right;
+    width: 92%;   /*左边空白间隙*/
+}
+.pinglun-body h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #046bb0;
+    padding-bottom: 10px;
+}
+.pinglun-body h3 span, .pinglun-bottom span {
+    color: #999;
+    font-weight: normal;
+    font-size: 14px;
+}
+.pinglun-bottom span {
+    margin-left: 20px;
+}
+.pinglun-entry {
+    /*margin-bottom: 15px;*/
+    /*padding-bottom: 15px;*/
+    /*border-bottom: dashed 1px #7f8c8d;*/
+}
+.pinglun-text {
+    padding: 10px 0;    /*上、右、下、左 的填充*/
+}
+.pinglun-text img {
+    max-width: 80%;
+    height: auto;
+}
+.pinglun-avatar {
+	float: left;
+    width: 8%;
+    margin: auto;    /*设置四个边距*/
+}
+/*ghfh -----------------------------------------------------------------------------------------*/
+.comment-item {
+	border-bottom: 1px solid #ff73014a;
+    list-style: none;
+}
+.commentator-avatar {
+    float: left;
+    width: 50px;
+    margin-top: 20px;
+    position: relative;
+}
+.commentator-avatar img {
+    border-radius: 50%;
+    width: 50px;
+    /*-webkit-box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);*/
+    /*box-shadow: 1px 1px 1px rgba(0,0,0,.1), 1px 1px 1px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0,0.1);*/
+    border: 2px solid #fff;
+}
+.commentator-comment {
+    padding: 14px 0 10px 0;
+    margin-left: 56px;
+}
+.commentator-name {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    padding-bottom: 4px;
+    display: inline-block;
+    word-wrap: break-word;
+}
+.comment-chat {
+    line-height: 20px;
+    padding: 10px 0 0 0;  /*容器内距离*/
+    font-size: 14px;
+    text-shadow: none;
+    /* overflow: hidden; */
+    word-wrap: break-word;
+    /* margin: 10px 0 0 0; */   /*容器外距离*/
+}
+.comment-info>span {
+    margin-right: 25px;
+}
+.comment-comment .comment-info a {
+    color: #99a2aa;
+    line-height: 26px;
+    font-size: 12px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.children {
+	margin-left:50px;
+}
+
+.children  .children {
+	margin-left:0px;
+}
+.children .commentator-avatar {
+    float: left;
+    width: 40px;
+    margin-top: 10px;
+    position: relative;
+}
+.children .commentator-avatar img{
+    float: left;
+	height:40px;
+    width: 40px;
+    /*margin-top: 20px;*/
+    position: relative;
+}
+.children .commentator-comment {
+    padding: 10px 0 7px 0;
+    margin-left: 45px;
+}
+/*ghfh -----------------------------------------------------------------------------------------*/
+.pinglun-avatar img {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	max-width: 90%;    /*图片缩放比例*/
+	height: auto;
+	border: 3px solid #fff;   /*外圆环*/
+	float: left;
+	-webkit-transition: all .8s ease-in-out;
+	-moz-transition: all .8s ease-in-out;
+	-o-transition: all .8s ease-in-out;
+	transition: all .8s ease-in-out;
+	-moz-box-shadow: 1px 1px 7px #777;
+	-webkit-box-shadow: 1px 1px 7px #777;
+	box-shadow: 1px 1px 7px #777;
+    /*margin-top: 5px;     !*图片距离顶端的距离 *!*/
+
+}
+.dp-c .pinglun {
+	color: green;
+}
+.dp-vb .pinglun {
+	color: green;
+}
+.dp-sql .pinglun {
+	color: green;
+}
+.dp-xml .pingluns {
+	color: green;
+}
+.dp-delphi .pinglun {
+	color: #008200;
+	font-style: italic;
+}
+.dp-py .pinglun {
+	color: green;
+}
+.dp-rb .pinglun {
+	color: #c00;
+}
+.dp-css .pinglun {
+	color: green;
+}
+.dp-j .pinglun {
+	color: #3f7f5f;
+}
+.dp-cpp .pinglun {
+	color: #e00;
+}
+.dp-perl .pinglun {
+	color: green;
+}
+.dp-g .pinglun {
+	color: #3f7f5f;
+}
+
+.comment-badge {
+    display: inline-block;
+    min-width: 10px;
+    /* padding: 3px 7px; */
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: blueviolet;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    /* background-color: #777; */
+    border-radius: 10px;
+}
+.comment-admin-badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 1px 1px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    color: #f8f8f8;
+    white-space: nowrap;
+    vertical-align: baseline;
+    /* border-radius: 10px; */
+    /*border-style: solid;*/
+    /*border-color: #f9ff00;*/
+    /*border-width: 1px;*/
+    background-color: #ff3b00bf;
+}
+.comment-top{
+    width:96%;
+    height:14px
+}
+
+.author-name{
+    width:auto;
+    float:left;
+    height:14px;
+    color:#fb8c02
+}
+.author-flag{
+    width:auto;
+    float:right;
+    height:14px
+}
+.comment-below{
+    width: 96%;
+    height: 14px;
+    margin: 6px 0 0 0;
+}
+.author-time{
+    width:auto;
+    float:left;
+    height:14px;
+    color: #563c398c;
+}
+.author-like {
+    width: auto;
+    float: right;
+    height: 14px;
+    position: relative;
+    left: -30px;
+}
+.author-reply{
+    width:auto;
+    float:right;
+    height:14px
+}
+.content p{
+    margin: 8px 0 0;
+    line-height: 20px;
+}
+.author-name a {
+    color: #fb8c02;
+    text-decoration: none;
+}
+.article-end-left{
+    margin: 8px 0 0;
+    float:left;
+    color: #fb8c02;
+    width:auto;
+    height:14px
+}
+.article-end-right{
+    margin: 8px 0 0;
+    float:right;
+    color: #fb8c02;
+    width:auto;
+    height:14px;
+    position: relative;
+    /*left: -30px;*/
+}
+.comment-num-right{
+    margin: 8px 0 0;
+    float:right;
+    color: #fb8c02;
+    width:auto;
+    height:14px;
+    position: relative;
+    /*left: -30px;*/
+    top: -7px;
+}
+.comment-num-center{
+    margin: 8px 0 0;
+    /* float: right; */
+    color: #fb8c02;
+    width: auto;
+    height: 14px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.article-comment {
+    background: url(../images/articlebg.png) repeat;
+    padding: 15px;
+    overflow: hidden;
+}
+.children-father{
+    color: #12aa00d9;
+}

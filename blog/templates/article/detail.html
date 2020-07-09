@@ -8,34 +8,35 @@
 {% endblock title %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="/static/css/detail-5.css">
-<link rel="stylesheet" type="text/css" href="/static/css/pinglun-28.css">
-
-<!--<link rel="stylesheet" type="text/css" href="https://drive.bgdnuidxv.com/web/zoom.js-master/css/zoom.css">-->
+<link rel="stylesheet" type="text/css" href="/static/css/detail.css">
+<link rel="stylesheet" type="text/css" href="/static/css/pinglun.css">
 {% endblock head %}
 
 {% block content %}
-
-
-
 <article>
     <div class="container center_content">
-<!--        <div class="col-12 alert alert-success">作者：{{ article.author }}  点击量：{{ article.clickNums }}</div>-->
         <div class="stitle">
             <h2 data-scroll-reveal="enter right and move 10px over 1s">{{ article.title }}</h2>
-<!--            <author data-scroll-reveal="enter bottom and move 20px over 1s after 0.5s"><i class="far fa-eye" style="color: lightskyblue;"></i>&nbsp;{{ article.clickNums }}</author>-->
             <span data-scroll-reveal="enter bottom and move 20px over 1s after 0.5s">{{ article.createTime|date:'Y-m-d H:i:s' }}</span>
         </div>
         <h3 data-scroll-reveal="enter right and move 20px over 1s">
             <span>您现在的位置是&gt;</span>
             <a href="/">首页</a>&gt;
+
             {% if article.category.lifeOrStudy == "学无止境" %}
             <a href="/learn/0/1/">
                 {% else %}
-                <a href="/slowlife/">
+                <a href="/life/0/1">
                     {% endif %}
                 {{ article.category.lifeOrStudy }}</a>&gt;
-            <a href="/learn/{{ article.category.id }}/1">{{ article.category.cname }}</a>&gt;
+
+             {% if article.category.lifeOrStudy == "学无止境" %}
+            <a href="/learn/{{ article.category.id }}/1">
+                {% else %}
+                <a href="/life/{{ article.category.id }}/1">
+                    {% endif %}
+                {{ article.category.cname }}</a>&gt;
+
             <a href="/detail/{{ article.createTime|date:'Y' }}/{{ article.createTime|date:'m' }}/{{ article.createTime|date:'d' }}/{{ article.slug }}/">{{ article.title }}</a>
         </h3>
         <div class="detail_content">
@@ -54,9 +55,9 @@
                 点赞
             </span>
         </div>
-
     </div>
 </article>
+
 <article-comment>
     <div class="container article-comment">
         <div class="comment-num-center">
@@ -88,12 +89,9 @@
         {% endif %}
     </div>
 </pinglun>
-
 {% endblock content %}
 
-
 {% block script %}
-
 <script>
     $(".django-ckeditor-widget").removeAttr('style');
 </script>
@@ -160,36 +158,6 @@
 </script>
 
 <style>
-    .stitle title{
-    display: block;
-    width: auto;
-    float: left;
-    height: 14px;
-    color: #2e8b57;
-    font-size: 24px;
-    margin: 10px 0 20px 0;
-    }
-    .stitle author{
-    width: auto;
-    /* float: right; */
-    height: 14px;
-    position: relative;
-    right: -45%;
-    top: 20px;
-    }
-    .stitle time{
-    width: auto;
-    /* float: left; */
-    height: 14px;
-    /* color: #563c398c; */
-    right: 20%;
-    top: 10px;
-    }
-    .pinglun-list{
-        width: 100%;
-    }
-    .max{width:100%;height:auto;}
-    .min{width:100px;height:auto;}
-</style>
 
+</style>
 {% endblock script %}

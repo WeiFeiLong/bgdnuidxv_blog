@@ -7,17 +7,14 @@
 
 {% block content %}
 <!--因为下文class="tmtimeline"在index.css和learn.css中皆有定义，且不同，因此分开使用 /static/images/anPic1.jpg-->
-<link rel="stylesheet" type="text/css" href="{% static 'css/index-3.css' %}">
 <article>
     <div class="container center_content">
         <div class="row" data-scroll-reveal="enter left and move 20px over 1s">
-
             <div class="col-xs-4">
                 <a href="#"><img src="/static/images/anPic1.jpg" class="img-responsive" alt="Responsive image"></a>
                 <p>不管前方的路有多苦，只要走的方向正确，不管多么崎岖不平，都比站在原地更接近幸福。</p>
                 <h3 class="text-right">宫崎骏《千与千寻》</h3>
             </div>
-
             <div class="col-xs-4">
                 <a href="#"><img src="/static/images/anPic2.jpg" class="img-responsive" alt="Responsive image"></a>
                 <div class="center_animition">
@@ -28,21 +25,18 @@
                     </ul>
                 </div>
             </div>
-
             <div class="col-xs-4">
                 <a href="#"><img src="/static/images/anPic3.jpg" class="img-responsive" alt="Responsive image"></a>
                 <p>我不知道离别的滋味是这样凄凉，我不知道说声再见要这么坚强。</p>
                 <h3 class="text-right">宫崎骏《千与千寻》</h3>
             </div>
         </div>
-
         <ul class="tmtimeline">
             <div id="changeBox">
                 <span class="glyphicon glyphicon-indent-left" title="文章童记" aria-hidden="true"></span>
             </div>
             <div class="container col-xs-12" id="pie"></div>
         </ul>
-
         <div class="pages">
             <a href="javascript:;">&lt;</a>
             <a href="javascript:;">&gt;</a>
@@ -50,7 +44,6 @@
     </div>
 </article>
 
-<script type="text/javascript" src="/static/js/index.js"></script>
 <script>
     $(function () {
         $.ajaxSetup({ cache: false });
@@ -76,7 +69,6 @@
                 }
             })
         }
-
         function f1(data) {   //处理返回后的数据    data为字符串型
             let i;
             data = $.parseJSON(data);    //将字符串型转化为object                        
@@ -301,3 +293,7 @@
     })();
 </script>
 {% endblock content %}
+
+{% block script %}
+<script type="text/javascript" src="/static/js/index.js"></script>
+{% endblock script %}

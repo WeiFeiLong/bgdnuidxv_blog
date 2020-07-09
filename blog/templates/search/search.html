@@ -7,6 +7,7 @@
 {% endblock title %}
 
 {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
 <script>
     $(function () {
             $('.tmlabel p').each(
@@ -31,18 +32,10 @@
             )
         }
     )
-
 </script>
 
 <style>
-    .empty{
-        font-size: 20px;
-        text-align: center;
-    }
-    .highlighted{
-        color: #1f231e;
-        font-weight: 500;
-    }
+
 </style>
 {% endblock head %}
 
@@ -53,7 +46,6 @@
             <h2 data-scroll-reveal="enter left and move 20px over 1s">搜索结果为</h2>
             <p class="hidden-xs" data-scroll-reveal="enter bottom and move 20px over 1s">不要轻易放弃。学习成长的路上，我们长路漫漫，只因学无止境。</p>
         </div>
-
         <ul class="tmtimeline">
             {% for array in results %}
             <li>
@@ -77,7 +69,6 @@
                                     {% highlight array.content with query  max_length 80 %}
                                 </p>
                             </div>
-
                             <a href="/detail/{{ array.year }}/{{ array.month }}/{{ array.day }}/{{ array.slug }}" class="readmore">阅读全文&gt;&gt;</a>
                         </div>
                     </div>

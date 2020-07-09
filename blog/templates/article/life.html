@@ -2,149 +2,153 @@
 {% load staticfiles %}
 
 {% block title %}
-    小眼记
+小眼记
 {% endblock title %}
 
 {% block content %}
-     <!--因为下文class="tmtimeline"在index.css和learn.css中皆有定义，且不同，因此分开使用-->
-    <link rel="stylesheet" type="text/css" href="/static/css/slowlife1.css">
-    <article>
-        <div class="container center_content">
-            <div class="subtitle">
-                <h2 data-scroll-reveal="enter left and move 20px over 1s">慢生活</h2>
-                <p class="hidden-xs" data-scroll-reveal="enter bottom and move 20px over 1s">“慢生活”不是懒惰，放慢速度不是拖延时间，而是让我们在生活中寻找到平衡。</p>
-            </div>
-            <div class="photowall visible-lg visible-md">
-                <ul class="wall_a row">
-                    <li class="col-xs-3"><a href="#"><img src="/static/images/p01.jpg">
-                      <figcaption>
-                        <h2>我不知道将去何方，但我已在路上。——《千与千寻》</h2>
-                      </figcaption>
-                      </a></li>
-                    <li class="col-xs-3"><a href="#"><img src="/static/images/p02.jpg">
-                      <figcaption>
-                        <h2>有些烦恼，丢掉了，才有云淡风轻的机会。——《龙猫》</h2>
-                      </figcaption>
-                      </a></li>
-                    <li class="col-xs-3"><a href="#"><img src="/static/images/p03.jpg">
-                      <figcaption>
-                        <h2>纵有疾风起，人生不言弃。——《起风了》</h2>
-                      </figcaption>
-                      </a></li>
-                    <li class="col-xs-3">
-                      <p class="text_a"><a href="#">一个人最好的模样大概是平静一点，坦然接受自己所有的弱点，不再因为别人过得好而焦虑，在没有人看得到你的时候依旧能保持节奏......</a></p>
-                    </li>
-                    <li class="col-xs-3"><a href="#"><img src="/static/images/p04.jpg">
-                      <figcaption>
-                        <h2>带上信仰,去寻找属于你自己的国度吧!哪怕倾尽一生。——《风之谷》</h2>
-                      </figcaption>
-                      </a></li>
-                    <li class="col-xs-3">
-                      <p class="text_b"><a href="#">因为你，我想要变成一个更好的人，不想成为你的负担，因此发奋，只是想证明我足以与你相配。——《侧耳倾听》</a></p>
-                    </li>
-                    <li class="col-xs-3"><a href="#"><img src="/static/images/p05.jpg">
-                      <figcaption>
-                        <h2>什么时候我们开始无法像孩子一样肆意地大呼小叫了？ 与其如此，不如永远像孩子一样。——《龙猫》</h2>
-                      </figcaption>
-                      </a></li>
-                    <li class="col-xs-3"><a href="#"><img src="/static/images/p06.jpg">
-                      <figcaption>
-                        <h2>什么时候我们开始无法像孩子一样肆意地大呼小叫了？心里的小情绪堆积得像山一样高，直到溢出来。 与其如此，不如永远像孩子一样。——《龙猫》</h2>
-                      </figcaption>
-                      </a></li>
-                </ul>
-            </div>
-
-            <ul class="sort" data-scroll-reveal="enter bottom and move 20px over 1s after 0.3s">
-                <li id="0">全部</li>
-                {% for t in category_life_list %}
-                    <li id="{{ t.id }}">{{ t.cname }}</li>
-                {% endfor %}
-            </ul>
-
-            <ul class="tmtimeline"></ul>
-
-            <div class="pages">
-                <a href="javascript:;">&lt;</a>
-                <a href="javascript:;">&gt;</a>
-            </div>
+<!--因为下文class="tmtimeline"在index.css和learn.css中皆有定义，且不同，因此分开使用-->
+<link rel="stylesheet" type="text/css" href="/static/css/life.css">
+<article>
+    <div class="container center_content">
+        <div class="subtitle">
+            <h2 data-scroll-reveal="enter left and move 20px over 1s">慢生活</h2>
+            <p class="hidden-xs" data-scroll-reveal="enter bottom and move 20px over 1s">“慢生活”不是懒惰，放慢速度不是拖延时间，而是让我们在生活中寻找到平衡。</p>
         </div>
-    </article>
+        <div class="photowall visible-lg visible-md">
+            <ul class="wall_a row">
+                <li class="col-xs-3"><a href="#"><img src="/static/images/p01.jpg">
+                    <figcaption>
+                        <h2>我不知道将去何方，但我已在路上。——《千与千寻》</h2>
+                    </figcaption>
+                </a></li>
+                <li class="col-xs-3"><a href="#"><img src="/static/images/p02.jpg">
+                    <figcaption>
+                        <h2>有些烦恼，丢掉了，才有云淡风轻的机会。——《龙猫》</h2>
+                    </figcaption>
+                </a></li>
+                <li class="col-xs-3"><a href="#"><img src="/static/images/p03.jpg">
+                    <figcaption>
+                        <h2>纵有疾风起，人生不言弃。——《起风了》</h2>
+                    </figcaption>
+                </a></li>
+                <li class="col-xs-3">
+                    <p class="text_a"><a href="#">一个人最好的模样大概是平静一点，坦然接受自己所有的弱点，不再因为别人过得好而焦虑，在没有人看得到你的时候依旧能保持节奏......</a></p>
+                </li>
+                <li class="col-xs-3"><a href="#"><img src="/static/images/p04.jpg">
+                    <figcaption>
+                        <h2>带上信仰,去寻找属于你自己的国度吧!哪怕倾尽一生。——《风之谷》</h2>
+                    </figcaption>
+                </a></li>
+                <li class="col-xs-3">
+                    <p class="text_b"><a href="#">因为你，我想要变成一个更好的人，不想成为你的负担，因此发奋，只是想证明我足以与你相配。——《侧耳倾听》</a></p>
+                </li>
+                <li class="col-xs-3"><a href="#"><img src="/static/images/p05.jpg">
+                    <figcaption>
+                        <h2>什么时候我们开始无法像孩子一样肆意地大呼小叫了？ 与其如此，不如永远像孩子一样。——《龙猫》</h2>
+                    </figcaption>
+                </a></li>
+                <li class="col-xs-3"><a href="#"><img src="/static/images/p06.jpg">
+                    <figcaption>
+                        <h2>什么时候我们开始无法像孩子一样肆意地大呼小叫了？心里的小情绪堆积得像山一样高，直到溢出来。 与其如此，不如永远像孩子一样。——《龙猫》</h2>
+                    </figcaption>
+                </a></li>
+            </ul>
+        </div>
 
-    <script>
-        $(function () {
-            f1();
-           $('.sort li').click(function () {       //为所有的类别绑定点击事件
-                console.log($(this).attr('id'));
-                window.location.href='/life/'+$(this).attr('id')+'/1/';
-            });
+        <ul class="sort" data-scroll-reveal="enter bottom and move 20px over 1s after 0.3s">
+            <li id="0">全部</li>
+            {% for t in category_life_list %}
+            <li id="{{ t.id }}">{{ t.cname }}</li>
+            {% endfor %}
+        </ul>
 
-            $('.pages a:not(":first,:last")').click(function () {
-                page_id=$(this).text();     //page_id为接下来要请求的页码号
-                window.location.href='/life/{{ category_id }}/'+page_id+'/';
-            });
+        <ul class="tmtimeline"></ul>
 
-            function f1() {   let i;//处理返回后的数据
-                result = {{ result|safe }};//刷新文章
-                for ( i = 0; i < result.length; i++) {
-                    $('.tmtimeline').append('<li><div class="row"><div class="col-lg-3 col-md-3 col-sm-3 col-xs-2"> <time class="tmtime"> <span>'
-                        +result[i][0]+
-                        '</span> <span>'
-                        +result[i][1]+
-                        '</span> </time> <div class="tmicon"></div> </div> <div class="col-lg-9 col-md-9 col-sm-9 col-xs-10" data-scroll-reveal="enter right and move 50px over 1.2s"> <div class="tmlabel"> <h3>'
-                        +result[i][2]+
-                        '</h3> <div class="row" > <img src="/drive/'
-                        +result[i][3]+
-                        '" class="col-xs-4 img-responsive blogpic" onerror = "+result[i][6]+:this.src = \'/media/editor/book.jpg\'"> <div class="col-xs-8">'
-                        +result[i][4]+
-                        '...</div> </div> <a href="/detail/'
-                        +result[i][7]+"/"
-                        +result[i][8]+"/"
-                        +result[i][9]+"/"
-                        +result[i][6]+
-                        '/" class="readmore">阅读全文{{ learn_num }}&gt;&gt;</a> </div> </div> </div> </li>'
-                    );
-                }
+        <div class="pages">
+            <a href="javascript:;">&lt;</a>
+            <a href="javascript:;">&gt;</a>
+        </div>
+    </div>
+</article>
 
-                //刷新页码
-                if(parseInt({{ num_pages }}) <= 5) {     //如果总页码数小于等于5
-                    for(i = 1; i<=parseInt({{ num_pages }});i++){
-                        $('.pages a:last').before('<a href="javascript:;">' +i+ '</a>');
-                    }
-                }else if(parseInt({{ page_id }})<=3){        //如果当前页码数小于等于3,显示前五页
-                    for(i = 1; i<=5; i++){
-                        $('.pages a:last').before('<a href="javascript:;">' +i+ '</a>');
-                    }
-                }else if(parseInt({{ page_id}})>parseInt({{ num_pages }})-2){    //当前页后面不足两页时
-                    for(i = 0; i<5; i++){
-                        $('.pages a:first').after('<a href="javascript:;">' +(parseInt({{ num_pages }})-i)+ '</a>');
-                    }
-                }else{
-                    for(i = -2; i<=2; i++){
-                        $('.pages a:last').before('<a href="javascript:;">' +(parseInt({{ page_id }})+i)+ '</a>');
-                    }
-                }
+<script>
+    $(function () {
+        f1();
+        $('.sort li').click(function () {       //为所有的类别绑定点击事件
+            console.log($(this).attr('id'));
+            window.location.href='/life/'+$(this).attr('id')+'/1/';
+        });
 
-                $('.pages a:not(":first,:last")').each(function () {    //为当前页加上active
-                    if($(this).text()=={{ page_id }})
-                        $(this).addClass('active');
-                });
+        $('.pages a:not(":first,:last")').click(function () {
+            page_id=$(this).text();     //page_id为接下来要请求的页码号
+            window.location.href='/life/{{ category_id }}/'+page_id+'/';
+        });
 
-                $('.pages a:first').unbind("click").click(function () {
-                    if(parseInt({{ page_id }})<=1)
-                        alert('已经是第一页');
-                    else
-                        window.location.href='/life/{{ category_id }}/{{ page_id|add:-1 }}';
-                });
-                $('.pages a:last').unbind("click").click(function () {
-                    if(parseInt({{ page_id }})>=parseInt({{ num_pages }}))
-                        alert('已经是最后一页');
-                    else
-                        window.location.href='/life/{{ category_id}}/{{ page_id|add:1 }}';
-                });
-                scrollReveal.init();    //使用js动态写入的html,必须init初始化才能正常使用scrollReveal动画效果
+        function f1() {   let i;//处理返回后的数据
+            result = {{ result|safe }};//刷新文章
+            for ( i = 0; i < result.length; i++) {
+                $('.tmtimeline').append('<li><div class="row"><div class="col-lg-3 col-md-3 col-sm-3 col-xs-2"> <time class="tmtime"> <span>'
+                    +result[i][0]+
+                    '</span> <span>'
+                    +result[i][1]+
+                    '</span> </time> <div class="tmicon"></div> </div> <div class="col-lg-9 col-md-9 col-sm-9 col-xs-10" data-scroll-reveal="enter right and move 50px over 1.2s"> <div class="tmlabel"> <h3>'
+                    +result[i][2]+
+                    '</h3> <div class="row" > <img src="/drive/'
+                    +result[i][3]+
+                    '" class="col-xs-4 img-responsive blogpic" onerror = "+result[i][6]+:this.src = \'/media/editor/book.jpg\'"> <div class="col-xs-8">'
+                    +result[i][4]+
+                    '...</div> </div> <a href="/detail/'
+                    +result[i][7]+"/"
+                    +result[i][8]+"/"
+                    +result[i][9]+"/"
+                    +result[i][6]+
+                    '/" class="readmore">阅读全文{{ learn_num }}&gt;&gt;</a> </div> </div> </div> </li>'
+                );
             }
-        })
-    </script>
+
+            //刷新页码
+            if(parseInt({{ num_pages }}) <= 5) {     //如果总页码数小于等于5
+                for(i = 1; i<=parseInt({{ num_pages }});i++){
+                    $('.pages a:last').before('<a href="javascript:;">' +i+ '</a>');
+                }
+            }else if(parseInt({{ page_id }})<=3){        //如果当前页码数小于等于3,显示前五页
+                for(i = 1; i<=5; i++){
+                    $('.pages a:last').before('<a href="javascript:;">' +i+ '</a>');
+                }
+            }else if(parseInt({{ page_id}})>parseInt({{ num_pages }})-2){    //当前页后面不足两页时
+                for(i = 0; i<5; i++){
+                    $('.pages a:first').after('<a href="javascript:;">' +(parseInt({{ num_pages }})-i)+ '</a>');
+                }
+            }else{
+                for(i = -2; i<=2; i++){
+                    $('.pages a:last').before('<a href="javascript:;">' +(parseInt({{ page_id }})+i)+ '</a>');
+                }
+            }
+
+            $('.pages a:not(":first,:last")').each(function () {    //为当前页加上active
+                if($(this).text()=={{ page_id }})
+                $(this).addClass('active');
+            });
+
+            $('.pages a:first').unbind("click").click(function () {
+                if(parseInt({{ page_id }})<=1)
+                alert('已经是第一页');
+            else
+                window.location.href='/life/{{ category_id }}/{{ page_id|add:-1 }}';
+            });
+            $('.pages a:last').unbind("click").click(function () {
+                if(parseInt({{ page_id }})>=parseInt({{ num_pages }}))
+                alert('已经是最后一页');
+            else
+                window.location.href='/life/{{ category_id}}/{{ page_id|add:1 }}';
+            });
+            scrollReveal.init();    //使用js动态写入的html,必须init初始化才能正常使用scrollReveal动画效果
+        }
+    })
+</script>
 {% endblock content %}
+
+{% block script %}
+<script type="text/javascript" src="/static/js/life.js"></script>
+{% endblock script %}
 

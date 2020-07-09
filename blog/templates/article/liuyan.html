@@ -4,20 +4,20 @@
 {% load comments_xtd %}
 
 {% block title %}
-    小眼记
+小眼记
 {% endblock title %}
 
 {% block content %}
-     <!--因为下文class="tmtimeline"在index.css和learn.css中皆有定义，且不同，因此分开使用-->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/learn.css' %}">
-    <article>
-        <div class="container center_content">
-            <div class="subtitle">
-                <h2 data-scroll-reveal="enter left and move 20px over 1s">留言板</h2>
-                <p class="hidden-xs" data-scroll-reveal="enter bottom and move 20px over 1s">你，生命中最重要的过客，之所以是过客，因为你未曾为我停留。</p>
-            </div>
+<!--因为下文class="tmtimeline"在index.css和learn.css中皆有定义，且不同，因此分开使用-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/liuyan.css' %}">
+<article>
+    <div class="container center_content">
+        <div class="subtitle">
+            <h2 data-scroll-reveal="enter left and move 20px over 1s">留言板</h2>
+            <p class="hidden-xs" data-scroll-reveal="enter bottom and move 20px over 1s">你，生命中最重要的过客，之所以是过客，因为你未曾为我停留。</p>
         </div>
-    </article>
+    </div>
+</article>
 
 <article-comment>
     <div class="container article-comment">
@@ -33,28 +33,10 @@
         </div>
     </div>
 </article-comment>
-
 {% endblock content %}
 
 {% block script %}
 <style>
-    .tixing{
-        color: #b3ce23;
-        font-size: 26px;
-        padding: 20px 0;
-        border: antiquewhite;
-    /* margin: 10px 0;*/
-    }
-    .liuyan-email{
-        color: coral;
-        font-size: 20px;
-        padding: 20px 0;
-        border: antiquewhite;
-    /* margin: 10px 0;*/
-        font-style:normal;
-
-    }
 
 </style>
-
 {% endblock script %}
