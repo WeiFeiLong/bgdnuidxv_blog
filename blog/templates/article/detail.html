@@ -10,6 +10,11 @@
 {% block head %}
 <link rel="stylesheet" type="text/css" href="/static/css/detail.css">
 <link rel="stylesheet" type="text/css" href="/static/css/pinglun.css">
+
+<style>
+
+</style>
+
 {% endblock head %}
 
 {% block content %}
@@ -28,16 +33,16 @@
                 {% else %}
                 <a href="/life/0/1">
                     {% endif %}
-                {{ article.category.lifeOrStudy }}</a>&gt;
+                    {{ article.category.lifeOrStudy }}</a>&gt;
 
-             {% if article.category.lifeOrStudy == "学无止境" %}
-            <a href="/learn/{{ article.category.id }}/1">
-                {% else %}
-                <a href="/life/{{ article.category.id }}/1">
-                    {% endif %}
-                {{ article.category.cname }}</a>&gt;
+                {% if article.category.lifeOrStudy == "学无止境" %}
+                <a href="/learn/{{ article.category.id }}/1">
+                    {% else %}
+                    <a href="/life/{{ article.category.id }}/1">
+                        {% endif %}
+                        {{ article.category.cname }}</a>&gt;
 
-            <a href="/detail/{{ article.createTime|date:'Y' }}/{{ article.createTime|date:'m' }}/{{ article.createTime|date:'d' }}/{{ article.slug }}/">{{ article.title }}</a>
+                    <a href="/detail/{{ article.createTime|date:'Y' }}/{{ article.createTime|date:'m' }}/{{ article.createTime|date:'d' }}/{{ article.slug }}/">{{ article.title }}</a>
         </h3>
         <div class="detail_content">
             {{ article.content|safe }}
@@ -66,7 +71,7 @@
 
         {% get_comment_count for object as comment_count %}
         <div class="comment-num-right">
-        {% if object.allow_comments %}
+            {% if object.allow_comments %}
             共有{{ comment_count }}条评论
             {% else %}
             评论功能已关闭
@@ -92,6 +97,7 @@
 {% endblock content %}
 
 {% block script %}
+
 <script>
     $(".django-ckeditor-widget").removeAttr('style');
 </script>
@@ -118,19 +124,19 @@
         $('[data-toggle="tooltip"]').tooltip({html: true});
     });
 </script>
-
+<!--插入图片-->
 <script type="text/JavaScript" language="javascript">
     function AddImgClickEvent()
     {
         const objs = document.getElementsByTagName("img");
         for(let i=0; i<objs.length; i++)
-      {
-        objs[i].onclick=function()
         {
-            $(this).toggleClass('max');
-        };
-        // objs[i].style.cursor = "zoom-in";
-      }
+            objs[i].onclick=function()
+            {
+                $(this).toggleClass('max');
+            };
+            // objs[i].style.cursor = "zoom-in";
+        }
     }
     AddImgClickEvent();
 </script>
@@ -139,7 +145,7 @@
     $(function (){
         $('.detail_content img').addClass('').attr("width","50%").attr("style","height: auto;cursor: zoom-in;");
     })
- </script>
+</script>
 
 <script>
     $(document).load($(window).bind("resize", checkPosition));
@@ -155,6 +161,22 @@
             $(".detail_content img").attr("width","50%");
         }
     }
+</script>
+<!--插入媒体-->
+<script>
+    // 对于<video>内的所有视频，浏览器只播放满足格式的第一个。
+    function FindAllVideo() {
+        const objs = document.getElementsByTagName("oembed");  //获取所有的<oembed>
+        for (let i = 0; i < objs.length; i++) {
+            const http = $("oembed").eq(i).html();  //获取插入媒体的链接，放在句首，不然后面的变化会影响oembed中的内容
+            $( "oembed" ).eq(i).empty().append( "<video width=\"100%\" height=\"auto\" controls preload=\"none\" poster=\"https://drive.bgdnuidxv.com/0:/images/%E4%B8%89%E9%9B%AA%E4%BA%BA.jpg\">" ); //将原来的内容清空，紧接oembed后面扩展video
+            $( "video" ).eq(i).append("<source src='"+ http+ "' type='video/mp4'>");   //紧接video后面扩展source
+
+            $( "video" ).eq(i).append("<p>你的浏览器不支持HTML5video播放。点击 <a href='"+ http+ "'>这里</a> 来观看视频。</p>");   //备用视频源
+            // alert("<source src='"+ http+ "' >");
+        }
+    }
+    FindAllVideo();
 </script>
 
 <style>
