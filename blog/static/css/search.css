@@ -6,3 +6,31 @@
     color: #1f231e;
     font-weight: 500;
 }
+
+.subtitle{
+    position:relative;
+}
+
+.subtitle h2{
+    display: block;
+    font-size: 22px;
+    background-color: #46632b;
+    padding: 10px 0;
+    width: 200px;
+    text-align: center;
+    border-radius: 0 30px 30px 0;
+    box-shadow:  1px 1px 3px #46632b;
+    border-left: #dae1e4 6px solid;
+    margin: 20px 0 0 30px;
+    color:white;
+}
+
+.subtitle p{
+    float: right;
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-shadow: rgba(7, 84, 152, 0.71) 1px 1px 1px;
+    color: #f9ffef;
+}
