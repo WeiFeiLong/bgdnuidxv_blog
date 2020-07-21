@@ -85,5 +85,14 @@ p{                      /*为了让前端显示更好看*/
 .pinglun-list{
     width: 100%;
 }
-.max{width:100%;height:auto;}
-.min{width:100px;height:auto;}
+.max{
+    width:100%;
+    height:auto;
+}
+.min{
+    width:100px;
+    height:auto;
+}
+.divrongqi p{
+    margin: 0;
+}
