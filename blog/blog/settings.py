@@ -133,7 +133,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False  # https://www.jianshu.com/p/c1dee7d3cbb9
 
 SITE_ID = 3  # 设置{{ site.domain }}
 
@@ -142,6 +142,10 @@ SITE_ID = 3  # 设置{{ site.domain }}
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+# 文件上传 # 图像抠图y与拼接相关
+YANDEX_URL = '/yandex/'
+YANDEX_ROOT = os.path.join(BASE_DIR, 'yandex').replace('\\', '/')
 
 # 文件上传 # CKeditor 相关
 MEDIA_URL = '/drive/'
@@ -179,7 +183,7 @@ CKEDITOR_CONFIGS = {
             # []
         ],
         # 加入代码块插件
-        'extraPlugins': ','.join(['codesnippet', 'prism', 'widget', 'lineutils']),
+        'extraPlugins': ','.join(['codesnippet', 'prism', 'widget', 'lineutils', 'embed', 'embedbase']),
     },
 
     'wight': {
@@ -223,8 +227,9 @@ CKEDITOR_CONFIGS = {
         ],
         # 插件 codesnippetgeshi
         'extraPlugins': ','.join(
-            ['codesnippet', 'uploadimage', 'prism', 'widget', 'lineutils', 'autogrow', 'embedsemantic',
-             'autoembed', 'image2', 'filebrowser', 'popup', 'filetools']),
+            ['codesnippet', 'uploadimage', 'prism', 'widget', 'lineutils', 'autogrow', 'embed', 'embedbase',
+             'embedsemantic',
+             'autoembed', 'image2', 'filebrowser', 'popup', 'filetools', 'oembed']),
     }
 
 }
@@ -266,7 +271,7 @@ HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 EMAIL_HOST = "smtp.yandex.com"  # SMTP服务器
 EMAIL_PORT = "465"  # 发送邮件的端口
 EMAIL_HOST_USER = "comment@bgdnuidxv.com"  # 改为你自己的邮箱名！
-EMAIL_HOST_PASSWORD = "******"  # 你的邮箱密码
+EMAIL_HOST_PASSWORD = "520211314angel"  # 你的邮箱密码
 # EMAIL_USE_TLS = True  # 是否使用 TLS
 EMAIL_USE_SSL = True
 EMAIL_TIMEOUT = 5

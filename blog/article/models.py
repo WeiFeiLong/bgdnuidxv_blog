@@ -57,7 +57,8 @@ class Article(models.Model):
     # slug = models.SlugField(unique=True)
     slug = models.SlugField('唯一码字', max_length=200, db_index=True, unique=True, default='3')
     content = RichTextUploadingField(verbose_name='正文', default='', config_name='wight')
-    createTime = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)  # 可以暂时先用，,default=timezone.now
+    createTime = models.DateTimeField(verbose_name='创建时间',  default=timezone.now)
+    # 可以暂时先用，default=timezone.now auto_now_add=True,
     modifyTime = models.DateTimeField(verbose_name='上次修改时间', auto_now=True)  # auto_now=True，在你修改时，会自动变成当前时间。
     clickNums = models.IntegerField(verbose_name='点击量', default=0)  # 点击量，默认从0开始
     pic = models.ImageField(verbose_name='博客封面图片', upload_to='pic_img', default='pic_img/book.jpg')
