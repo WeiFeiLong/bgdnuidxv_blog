@@ -250,8 +250,8 @@ CACHES = {
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_CACHE_ALIAS = 'default'
 
-# 设置session失效时间,单位为秒
-SESSION_COOKIE_AGE = 60 * 60
+# 设置session失效时间,单位为秒[网站各登陆允许的时间]
+SESSION_COOKIE_AGE = 60 * 60 * 6
 
 # 添加搜索引擎
 HAYSTACK_CONNECTIONS = {
