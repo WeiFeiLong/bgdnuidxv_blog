@@ -199,7 +199,7 @@ def chartInfo(request):  # 饼图ajax请求数据
         return HttpResponse(json.dumps(context))
 
 
-# @cache_page(60 * 60)  # 设置为了永久缓存，当首页修改时需要删除缓存,None
+@cache_page(60 * 60)  # 设置为了永久缓存，当首页修改时需要删除缓存,None
 def about(request):
     # change_info(request)  # 当网站被访问时，更新网站访问次数
     return render(request, 'article/about.html')
